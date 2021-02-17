@@ -11,9 +11,28 @@ class Frogger {
         this.frameY = 0;
     }
     update(){
-
+        if(keys[38]){
+            if(this.moving === false){
+                this.y -= grid;
+                this.moving = true;
+            }
+        }
+        if(keys[40]){
+            if(this.moving === false){
+                if(this.y < canvas.height - this.height * 2 && this.moving === false){
+                    this.y += grid;
+                    this.moving = true;
+                }
+            }
+        }
     }
     draw(){
-        
+        ctx3.fillStyle = 'green';
+        ctx3.fillRect(this.x, this.y, this.width, this.height);
+    }
+    jump(){
+        console.log('jump')
     }
 }
+
+const frogger = new Frogger();
